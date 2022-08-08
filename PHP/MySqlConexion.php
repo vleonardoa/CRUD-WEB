@@ -2,8 +2,8 @@
 //https://www.w3schools.com/php/func_mysqli_connect.asp
 //https://www.php.net/manual/es/mysqli.quickstart.connections.php
 
-$host = "162.241.60.169 "; 
-$user = "elctrlco_vidalito "; 
+$host = "162.241.60.169"; 
+$user = "elctrlco_vidalito"; 
 $password = "admin"; 
 $database = "elctrlco_CRUD"; 
 

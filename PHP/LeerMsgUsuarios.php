@@ -3,7 +3,7 @@ include("./MySqlConexion.php");
 /* obtener un array asociativo 
 	https://www.php.net/manual/es/mysqli-result.fetch-assoc.php
 	*/
-    $sql = "SELECT * FROM Usuarios";
+    $sql = "SELECT * FROM usuarios";
     $response = array();
 
     if ($resultado = mysqli_query($conn, $sql)) {

@@ -14,7 +14,7 @@ include("./MySqlConexion.php");
     // Simple Converts it into a PHP object 
     $data = json_decode($json); 
     
-    $sql = "INSERT INTO Usuarios (nombre, apellido, mensaje, fecha) VALUES ('$data->nombre', '$data->apellido','$data->mensaje', NOW())";
+    $sql = "INSERT INTO usuarios (nombre, apellido, mensaje, fecha) VALUES ('$data->nombre', '$data->apellido','$data->mensaje', NOW())";
 
     if ($conn->query($sql) === TRUE) {
         $response["status"] = 200;
