@@ -2,10 +2,10 @@
 //https://www.w3schools.com/php/func_mysqli_connect.asp
 //https://www.php.net/manual/es/mysqli.quickstart.connections.php
 
-$host = "localhost"; 
-$user = "root"; 
-$password = "Umg$2019"; 
-$database = "demo"; 
+$host = "162.241.60.169 "; 
+$user = "elctrlco_vidalito "; 
+$password = "admin"; 
+$database = "elctrlco_CRUD"; 
 
 /*Estilo orientado a objetos*/
 $conn = new mysqli($host, $user, $password, $database);
