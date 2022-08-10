@@ -1,19 +1,20 @@
 llamadaDemo();
 let id = '';
-// function Editar(id, nombre, apellido, mensaje) {
-//     //alert(id);
-//     //https://getbootstrap.com/docs/5.0/components/modal/#options
-//     document.getElementById("txtIDU").value = id;
-//     document.getElementById("txtNombreU").value = nombre;
-//     document.getElementById("txtApellidoU").value = apellido;
-//     document.getElementById("txtMensajeU").value = mensaje;
 
-//     var myModal = new bootstrap.Modal(document.getElementById('exampleModalEditar'), {
-//         keyboard: false
-//     })
+function Editar(id, nombre, apellido, mensaje) {
+    //alert(id);
+    //https://getbootstrap.com/docs/5.0/components/modal/#options
+    document.getElementById("txtIDU").value = id;
+    document.getElementById("txtNombreU").value = nombre;
+    document.getElementById("txtApellidoU").value = apellido;
+    document.getElementById("txtMensajeU").value = mensaje;
 
-//     myModal.show()
-// }
+    var myModal = new bootstrap.Modal(document.getElementById('exampleModalEditar'), {
+        keyboard: false
+    })
+
+    myModal.show()
+}
 
 function llamadaDemo() {
     //alert("Hola con JavaScript");
