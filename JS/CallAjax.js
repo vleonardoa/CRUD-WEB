@@ -1,6 +1,6 @@
 llamadaDemo();
 
-function Editar(id, nombre, apellido, mensaje){
+function Editar(id, nombre, apellido, mensaje) {
     //alert(id);
     //https://getbootstrap.com/docs/5.0/components/modal/#options
     document.getElementById("txtIDU").value = id;
@@ -10,8 +10,8 @@ function Editar(id, nombre, apellido, mensaje){
 
     var myModal = new bootstrap.Modal(document.getElementById('exampleModalEditar'), {
         keyboard: false
-      })
-    
+    })
+
     myModal.show()
 }
 
@@ -33,7 +33,7 @@ function llamadaDemo() {
                     //alert(data.message[index].nombre);
                     const row = document.createElement("tr");
                     row.setAttribute("id", data.message[index].id);
-                    row.setAttribute("onclick", "Editar('" + data.message[index].id + "','" +  data.message[index].nombre + "','" +  data.message[index].apellido + "','" +  data.message[index].mensaje + "');");
+                    row.setAttribute("onclick", "Editar('" + data.message[index].id + "','" + data.message[index].nombre + "','" + data.message[index].apellido + "','" + data.message[index].mensaje + "');");
 
 
                     const cell = document.createElement("td");
@@ -61,6 +61,11 @@ function llamadaDemo() {
                     cell4.appendChild(cellText4);
                     row.appendChild(cell4);
 
+                    const cell5 = document.createElement("td");
+                    const cellText5 = document.createTextNode(' <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"> Modal </button>');
+
+
+
                     tbodyUser.appendChild(row);
                 }
             }
@@ -68,24 +73,25 @@ function llamadaDemo() {
         });
 
 }
+
 function ActualizarDatos() {
     var vnombre = document.getElementById("txtNombreU").value
     var vapellido = document.getElementById("txtApellidoU").value
     var vmensaje = document.getElementById("txtMensajeU").value
-    
-    if(vnombre == "" || vapellido == "" || vmensaje == ""){
+
+    if (vnombre == "" || vapellido == "" || vmensaje == "") {
         //alert("complete los campos requeridos");
         Swal.fire({
             title: 'Error!',
             text: 'complete los campos requeridos',
             icon: 'error',
             confirmButtonText: 'Cool'
-          })
-    }
-    else{
+        })
+    } else {
 
     }
 }
+
 function GuardarDatos() {
     //alert('Guardando Datos');
     //https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Using_Fetch#enviando_datos_json
@@ -94,19 +100,18 @@ function GuardarDatos() {
     var vnombre = document.getElementById("txtNombre").value
     var vapellido = document.getElementById("txtApellido").value
     var vmensaje = document.getElementById("txtMensaje").value
-    if(vnombre == "" || vapellido == "" || vmensaje == ""){
+    if (vnombre == "" || vapellido == "" || vmensaje == "") {
         alert("complete los campos requeridos");
-    }
-    else{
+    } else {
         var data = { nombre: vnombre, apellido: vapellido, mensaje: vmensaje };
 
         fetch(url, {
-            method: 'POST', // or 'PUT'
-            body: JSON.stringify(data), // data can be `string` or {object}!
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(res => res.json())
+                method: 'POST', // or 'PUT'
+                body: JSON.stringify(data), // data can be `string` or {object}!
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => res.json())
             .catch(error => {
                 alert(error.message)
                 console.error('Error:', error)
@@ -117,17 +122,15 @@ function GuardarDatos() {
                 document.getElementById("txtMensaje").value = '';
                 llamadaDemo();
                 Swal.fire(
-                    'Good job!',
-                    response.message,
-                    'success'
-                  )
-                //alert(response.message)
+                        'Good job!',
+                        response.message,
+                        'success'
+                    )
+                    //alert(response.message)
                 console.log('Success:', response)
             });
-        
+
     }
-    
+
 
 }
-
-
