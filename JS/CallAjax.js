@@ -1,19 +1,19 @@
 llamadaDemo();
+let id = '';
+// function Editar(id, nombre, apellido, mensaje) {
+//     //alert(id);
+//     //https://getbootstrap.com/docs/5.0/components/modal/#options
+//     document.getElementById("txtIDU").value = id;
+//     document.getElementById("txtNombreU").value = nombre;
+//     document.getElementById("txtApellidoU").value = apellido;
+//     document.getElementById("txtMensajeU").value = mensaje;
 
-function Editar(id, nombre, apellido, mensaje) {
-    //alert(id);
-    //https://getbootstrap.com/docs/5.0/components/modal/#options
-    document.getElementById("txtIDU").value = id;
-    document.getElementById("txtNombreU").value = nombre;
-    document.getElementById("txtApellidoU").value = apellido;
-    document.getElementById("txtMensajeU").value = mensaje;
+//     var myModal = new bootstrap.Modal(document.getElementById('exampleModalEditar'), {
+//         keyboard: false
+//     })
 
-    var myModal = new bootstrap.Modal(document.getElementById('exampleModalEditar'), {
-        keyboard: false
-    })
-
-    myModal.show()
-}
+//     myModal.show()
+// }
 
 function llamadaDemo() {
     //alert("Hola con JavaScript");
@@ -32,6 +32,7 @@ function llamadaDemo() {
                 for (let index = 0; index < data.message.length; index++) {
                     //alert(data.message[index].nombre);
                     const row = document.createElement("tr");
+                    //row.className = "text-center";
                     row.setAttribute("id", data.message[index].id);
                     row.setAttribute("onclick", "Editar('" + data.message[index].id + "','" + data.message[index].nombre + "','" + data.message[index].apellido + "','" + data.message[index].mensaje + "');");
 
@@ -61,17 +62,51 @@ function llamadaDemo() {
                     cell4.appendChild(cellText4);
                     row.appendChild(cell4);
 
+
+
                     const cell5 = document.createElement("td");
-                    const cellText5 = document.createTextNode(' <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"> Modal </button>');
+                    let button = document.createElement("button");
+
+                    button.className = "btn btn-danger";
+                    //button.setAttribute("data-bs-toggle", "modal");
+                    // button.setAttribute("data-bs-target", "#exampleModal");
+                    button.style.width = "70px";
+                    button.style.height = "30px";
+                    //button.style.color = "red";
+                    button.style.fontSize = "10px";
+                    button.style.textAlign = "center";
+                    // button.id = "enviar";
+
+                    //button.addEventListener("click", delet(id), false);
+                    button.innerHTML = "Eliminar";
+                    // var body = document.getElementsByTagName("body")[0];
+                    //body.appendChild(button);
+                    cell5.style.textAlign = "center";
 
 
+                    cell5.appendChild(button);
+                    button.addEventListener("click", (event) => {
 
+                        id = event.target.parentNode.parentNode.id;
+
+                        delet(id);
+                    })
+                    row.appendChild(cell5);
                     tbodyUser.appendChild(row);
+
+
                 }
             }
 
         });
 
+}
+
+function delet(id) {
+
+    fetch('/PHP/eliminarReg.php?id=' + id)
+    alert("Eliminado");
+    location.href = "index.html";
 }
 
 function ActualizarDatos() {
