@@ -161,9 +161,9 @@ function GuardarDatos() {
                 document.getElementById("txtMensaje").value = '';
                 llamadaDemo();
                 Swal.fire(
-                        'Good job!',
-                        response.message,
-                        'success'
+                        'Bien Hecho!',
+                        'Registro Guardado',
+                        'Realizado'
                     )
                     //alert(response.message)
                 console.log('Success:', response)
