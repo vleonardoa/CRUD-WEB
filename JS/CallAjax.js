@@ -111,6 +111,7 @@ function delet(id) {
 }
 
 function ActualizarDatos() {
+    var id = document.getElementById("txtIDU").value;
     var vnombre = document.getElementById("txtNombreU").value
     var vapellido = document.getElementById("txtApellidoU").value
     var vmensaje = document.getElementById("txtMensajeU").value
@@ -124,7 +125,9 @@ function ActualizarDatos() {
             confirmButtonText: 'Cool'
         })
     } else {
-
+        fetch('/PHP/actualizarReg.php?id=' + id + '&nombre=' + vnombre + '&apellido=' + vapellido + '&mensaje=' + vmensaje)
+        alert("Registro Actualizado");
+        location.href = "index.html";
     }
 }
 
